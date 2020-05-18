@@ -1,13 +1,10 @@
-
-
-
 FROM node:latest
-EXPOSE 3000
+EXPOSE 3000-3999
 WORKDIR /Code
 COPY .bashrc /tmp/.bashrc-additions
 COPY docker-entrypoint.sh /bin/docker-entrypoint.sh
 RUN chmod +x /bin/docker-entrypoint.sh
-ENTRYPOINT ["/bin/docker-entrypoint.sh"]
+ENTRYPOINT /bin/docker-entrypoint.sh
 
 # Install at a root level all of the basic programs needed
 RUN ["apt-get", "update"]
